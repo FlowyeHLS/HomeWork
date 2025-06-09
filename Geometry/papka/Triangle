@@ -1,0 +1,115 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Geometry
+{
+    abstract class Triangle : Shape
+    {
+        double a;
+        double b;
+        double c;
+        
+        public double A
+        {
+            get => a;
+
+            set => a = value < MIN_SIZE ? MIN_SIZE : value > MIN_SIZE ? MIN_SIZE : value;
+
+        }
+        public double B
+        {
+            get => b;
+
+            set => b = value < MIN_SIZE ? MIN_SIZE : value > MIN_SIZE ? MIN_SIZE : value;
+
+        }
+        public double C
+        {
+            get => c;
+
+            set => c = value < MIN_SIZE ? MIN_SIZE : value > MIN_SIZE ? MIN_SIZE : value;
+
+        }
+        public Triangle(int start_x, int start_y, int line_width, Color color)
+        : base(start_x, start_y, line_width, color)
+        
+            {
+                A = a;
+                B = b;
+                C = c;
+            }
+        public virtual bool GetInequality()
+        {
+            return A < B + C && B < A + C && C < A + B;
+        }
+        public abstract double GetHeight();
+        public virtual void InfoT()
+        {
+            Console.WriteLine($"Возможность построить треугольник:{GetInequality()}");
+            Console.WriteLine($"Высота:{GetHeight()}");
+        }
+    }
+}﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Geometry
+{
+    abstract class Triangle : Shape
+    {
+        double a;
+        double b;
+        double c;
+        
+        public double A
+        {
+            get => a;
+
+            set => a = value < MIN_SIZE ? MIN_SIZE : value > MIN_SIZE ? MIN_SIZE : value;
+
+        }
+        public double B
+        {
+            get => b;
+
+            set => b = value < MIN_SIZE ? MIN_SIZE : value > MIN_SIZE ? MIN_SIZE : value;
+
+        }
+        public double C
+        {
+            get => c;
+
+            set => c = value < MIN_SIZE ? MIN_SIZE : value > MIN_SIZE ? MIN_SIZE : value;
+
+        }
+        public Triangle(int start_x, int start_y, int line_width, Color color)
+        : base(start_x, start_y, line_width, color)
+        
+            {
+                A = a;
+                B = b;
+                C = c;
+            }
+        public virtual bool GetInequality()
+        {
+            return A < B + C && B < A + C && C < A + B;
+        }
+        public abstract double GetHeight();
+        public virtual void InfoT()
+        {
+            Console.WriteLine($"Возможность построить треугольник:{GetInequality()}");
+            Console.WriteLine($"Высота:{GetHeight()}");
+        }
+    }
+}
